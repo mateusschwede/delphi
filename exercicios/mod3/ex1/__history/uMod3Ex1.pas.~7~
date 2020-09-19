@@ -1,0 +1,35 @@
+unit uMod3Ex1;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TForm1 = class(TForm)
+    edtVal1: TEdit;
+    edtVal2: TEdit;
+    lblRes: TLabel;
+    btnSoma: TButton;
+    procedure clickBtnRes(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1; v1: Real;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.clickBtnRes(Sender: TObject);
+begin
+  v1 := StrToFloat(edtVal1.Text);
+  lblRes.Caption() = v1;
+end;
+
+end.
