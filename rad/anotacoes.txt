@@ -30,7 +30,13 @@ DCU Project/options: Output Directory(APP) UnitOutput(DCU) - Delphi Compiler
 
 Executável gerado: PastaProjeto > win64 > debug > application. Esse será enviado ao cliente
 Abrir: Sempre abrir o projeto pronto no prjNomeProjeto.dproj
-Enviar: No enviar em zip, eliminar arquivos do APP e DCU
+
+=== Enviar Zip do Projeto ===
+Enviar somente:
+- Delphi Form
+- Delphi Source File
+- Delphi Project File (2 arquivos)
+- Arquivo RES (se possui img)
 
 ========== COMPONENTES DO PROJETO ==========
 name: btnClicar
