@@ -28,14 +28,15 @@ implementation
 procedure TForm1.btnCalcClick(Sender: TObject);
 var m,i,tot: Integer;
 begin
+  tot := 1;
   m := StrToInt(edtVal.Text);
-  i:=1;
-  while i<=m do
+  lblRes.Caption := m.ToString + '!= ';
+  for i := m downto 1 do
   begin
-    tot = tot*m;
-    inc(i);
+    tot := tot*i;
+    lblRes.Caption := lblRes.Caption + m.ToString + 'X' + i.ToString;
   end;
-  lblRes.Caption := tot.ToString;
+  lblRes.Caption := lblRes.Caption + '=' + tot.ToString;
 end;
 
 end.

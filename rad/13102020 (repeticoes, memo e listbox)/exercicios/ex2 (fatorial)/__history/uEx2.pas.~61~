@@ -30,9 +30,10 @@ var m,i,tot: Integer;
 begin
   tot := 1;
   m := StrToInt(edtVal.Text);
+  lblRes.Caption := m.ToString + '!= ';
   for i := m downto 1 do
   begin
-    tot := tot*m;
+    tot := tot*i;
   end;
   lblRes.Caption := tot.ToString;
 end;
