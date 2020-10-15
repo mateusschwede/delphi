@@ -28,20 +28,13 @@ implementation
 procedure TForm1.btnCalcClick(Sender: TObject);
 var m,i,tot: Integer;
 begin
-  tot := 0;
-  if (m>0) then
+  tot := 1;
+  m := StrToInt(edtVal.Text);
+  for i := 1 to m do
   begin
-    lblRes.Caption := IntToStr(m) + '! = ';
-    for i := 1 to m do
-    begin
-      //Código aqui
-    end;
-  end
-  else
-  begin
-    MessageDlg('Insira valor positivo',mtError,[mbOk],0);
+    tot := tot*i;
   end;
-  lblRes.Caption := IntToStr(tot);
+  lblRes.Caption := tot.ToString;
 end;
 
 end.
