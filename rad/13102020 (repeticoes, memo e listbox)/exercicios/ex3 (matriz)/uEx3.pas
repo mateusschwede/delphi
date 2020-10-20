@@ -32,7 +32,7 @@ begin
   x := 1;
   if (l<=20) then
   begin
-    for i := 1 to 20 do
+    for i := 1 to l do
     begin
       lstMatriz.Items.Add(i.ToString + '- ');
       for j := 1 to i do

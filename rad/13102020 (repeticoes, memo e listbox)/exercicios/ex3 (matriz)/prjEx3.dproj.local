@@ -1,10 +1,2 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<BorlandProject>
-	<Transactions>
-    <Transaction>2020/10/14 19:47:11.000.826,=C:\Users\Mateus\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2020/10/15 17:22:25.000.396,=C:\Users\Mateus\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2020/10/15 17:24:22.000.108,C:\Users\Mateus\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\Mateus\Documents\delphi\rad\13102020 (repeticoes, memo e listbox)\exercicios\ex3 (matriz)\uEx3.pas</Transaction>
-    <Transaction>2020/10/15 17:24:22.000.108,C:\Users\Mateus\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\Mateus\Documents\delphi\rad\13102020 (repeticoes, memo e listbox)\exercicios\ex3 (matriz)\uEx3.dfm</Transaction>
-    <Transaction>2020/10/15 17:24:32.000.531,C:\Users\Mateus\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\Mateus\Documents\delphi\rad\13102020 (repeticoes, memo e listbox)\exercicios\ex3 (matriz)\prjEx3.dproj</Transaction>
-  </Transactions>
-</BorlandProject>
+<BorlandProject/>

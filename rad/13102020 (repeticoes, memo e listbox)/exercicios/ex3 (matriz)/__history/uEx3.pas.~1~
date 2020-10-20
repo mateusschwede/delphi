@@ -26,7 +26,7 @@ implementation
 {$R *.dfm}
 
 procedure TForm1.btnExecClick(Sender: TObject);
-var l,c,i,j,x: Integer;
+var l,i,j,x: Integer;
 begin
   l := StrToInt(edtVal.Text);
   x := 1;
@@ -37,16 +37,15 @@ begin
       lstMatriz.Items.Add(i.ToString + '- ');
       for j := 1 to i do
       begin
-        lstMatriz.Items.IndexOf(i.ToString);
-        //lstMatriz.Items.Append(x.ToString);
+        lstMatriz.Items.Append(x.ToString);
         inc(x);
       end;
-        
+
     end;
   end
   else
   begin
-    MessageDlg('20 linhas no máximo',mtError,[mbOk],0);  
+    MessageDlg('20 linhas no máximo',mtError,[mbOk],0);
   end;
 end;
 
