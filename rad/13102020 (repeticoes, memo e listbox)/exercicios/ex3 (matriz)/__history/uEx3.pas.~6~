@@ -35,13 +35,15 @@ begin
   begin
     for i := 1 to l do
     begin
-      res := '';
+              res := '';
+  //    lstMatriz.Items.Add(i.ToString + '- ');
       for j := 1 to i do
       begin
-        res := res + x.ToString + ' ';
+        //lstMatriz.Items.Append(x.ToString);
+        res := res + x.ToString;
         inc(x);
       end;
-      lstMatriz.Items.Add(i.ToString + '- ' + res);
+
     end;
   end
   else

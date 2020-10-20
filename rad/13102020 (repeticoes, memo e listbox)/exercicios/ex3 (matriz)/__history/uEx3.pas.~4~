@@ -27,17 +27,20 @@ implementation
 
 procedure TForm1.btnExecClick(Sender: TObject);
 var l,i,j,x: Integer;
+var res: String;
 begin
   l := StrToInt(edtVal.Text);
   x := 1;
   if (l<=20) then
   begin
-    for i := 1 to 20 do
+    res := '';
+    for i := 1 to l do
     begin
-      lstMatriz.Items.Add(i.ToString + '- ');
+  //    lstMatriz.Items.Add(i.ToString + '- ');
       for j := 1 to i do
       begin
-        lstMatriz.Items.Append(x.ToString);
+//        lstMatriz.Items.Append(x.ToString);
+          res := res + x.ToString;
         inc(x);
       end;
 
