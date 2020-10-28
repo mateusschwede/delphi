@@ -38,14 +38,12 @@ implementation
 {$R *.dfm}
 
 procedure TForm1.btnGerarClick(Sender: TObject);
-var l,c,c2,c3,c4,c5,i,n,lnd,cnd,contDif: Integer; nd: String;
+var l,c,c2,c3,c4,c5,i,n,lnd,cnd,iguais: Integer; opt: String;
 begin
   Randomize;
-  contDif := 0;
   c2 := 0;
   c3 := 0;
   c4 := 0;
-  c5 := 0;
   for l := 0 to strMatriz.RowCount-1 do
   begin
     for c := 0 to strMatriz.ColCount-1 do
@@ -80,41 +78,32 @@ begin
     for c := 0 to strMatriz.ColCount-1 do
     begin
 
-      //Defino valor
-      nd := strMatriz.Cells[l,c];
-      lstDif.Items.Add('Val '+strMatriz.Cells[c,l]);
-
-      //Percorro novamente toda matriz
+      iguais := 0;
       for lnd := 0 to strMatriz.RowCount-1 do
       begin
         for cnd := 0 to strMatriz.ColCount-1 do
         begin
-          
-          //Se valor percorrido é diferente do estático, addContDif
-          if strMatriz.Cells[lnd,cnd]<>nd then
-          begin                  
-            inc(contDif);     //2
+          if strMatriz.Cells[l,c]=strMatriz.Cells[lnd,cnd] then
+          begin
+            inc(iguais);
           end;
-
-          //Volta a percorrer novo percorrido
-          inc(c5);            //3
         end;
       end;
-
-      if contDif=c5-1 then
+      if iguais<2 then
       begin
-        {SetLength(vetDif,c4+1);
-        vetDif[c4-1] := StrToInt(nd);
+        opt := strMatriz.Cells[c,l];
+        SetLength(vetDif,c4+1);
+        vetDif[c4-1] := StrToInt(opt);
         strNum.ColCount := c4+1;
-        strNum.Cells[c4,0] := nd;
-        inc(c4);}
-//        lstDif.Items.Add(nd);
+        strNum.Cells[c4,0] := strMatriz.Cells[c,l];
+        inc(c4);
       end;
+
 
     end;
   end;
 
-  
+
 end;
 
 
