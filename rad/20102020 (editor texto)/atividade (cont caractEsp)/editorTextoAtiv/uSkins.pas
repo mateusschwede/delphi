@@ -87,31 +87,23 @@ end;
 
 procedure TfrmSkins.Contarcaracteres1Click(Sender: TObject);
 var
-  ind,i,j,totCarac,totNum,totEsp: integer;
+  ind,i,totCarac,totNum,totEsp: integer;
   txt: string;
 begin
   totCarac := 0;
+  totNum := 0;
+  totEsp := 0;
+
   for ind := 0 to mmTxt.Lines.Count-1 do
   begin
     txt := mmTxt.Lines[ind];
-    for i:=1 to Length(txt) do
+    for i := 1 to Length(txt) do
     begin
       if txt[i] in ['a'..'z','A'..'Z'] then
       begin
         inc(totCarac);
-      end;
-    end;
-  end;
-  MessageDlg('Total de Letras: ' + totCarac.ToString, mtInformation, [mbOk], 0);
-
-  // Qtd. Números
-  totNum := 0;
-  for i:=0 to mmTxt.Lines.Count-1 do
-  begin
-    txt := mmTxt.Lines[i];
-    for j:=1 to Length(txt) do
-    begin
-      if txt[i] in ['0'..'9','a'..'z','A'..'Z'] then
+      end
+      else if txt[i] in ['0'..'9'] then
       begin
         inc(totNum);
       end
@@ -121,11 +113,7 @@ begin
       end;
     end;
   end;
-  MessageDlg('Total Nº: ' + totNum.ToString,mtInformation,[mbOk],0);
-  MessageDlg('Total Esp: ' + totEsp.ToString,mtInformation,[mbOk],0);
-
-  // Qtd. Carac. Especiais (*/-+.,!@#$¨% ()<><;?.....)
-
+  MessageDlg('Caract: ' + totCarac.ToString + ' | Num: ' + totNum.ToString + ' | Esp: ' + totEsp.ToString, mtInformation, [mbOk], 0);
 end;
 
 procedure TfrmSkins.ConvMAISCULAS1Click(Sender: TObject);
