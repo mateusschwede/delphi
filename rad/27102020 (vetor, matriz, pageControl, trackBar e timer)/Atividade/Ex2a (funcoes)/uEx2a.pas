@@ -9,7 +9,6 @@ uses
 type
   TForm1 = class(TForm)
     edtVal: TEdit;
-    lstRes: TListBox;
     lstRes2: TListBox;
     btnGerar: TButton;
     procedure btnGerarClick(Sender: TObject);
@@ -28,50 +27,56 @@ implementation
 
 procedure TForm1.btnGerarClick(Sender: TObject);
 var
-  termo,intervalo,i,j,qPar,np,qImpar: Integer;
-  iNp, qNp:Integer;
+  intervalo,i,qPar,np,qImpar,num,iNp,qNp: Integer;
   calcPar,calcImpar,total: Real;
 begin
   intervalo := StrToInt(edtVal.Text);
-  lstRes.Clear;
   lstRes2.Clear;
   total := 0;
   iNp := 1;
+  num := 1;
+  qNp := 0;
 
-  repeat
+  while qNp<intervalo do
   begin
     qPar := 0;
-    qImpar := 0; 
-    //Gerar np's
-    //Ver divisores
-    for i := 0 to iNp do
+    qImpar := 0;
+    for i := 1 to iNp do
     begin
-      //Ver divisores par
-      if (iNp mod 2 = 0) then
+      if iNp mod i=0 then
+      begin      
+        if i mod 2=0 then
+        begin              
+          inc(qPar);
+        end
+        else
+        begin
+          inc(qImpar);
+        end;
+      end
+    end;
+    if qPar=qImpar then 
+    begin
+      inc(qNp);
+      lstRes2.Items.Add(iNp.ToString);
+      if num mod 2=0 then
       begin
-        inc(qPar);      
+        calcPar := iNp/num;
+        lstRes2.Items.Add(iNp.ToString+'(np) / '+num.ToString+'(num) = '+FloatToStr(calcPar));
+        inc(num);
+        total := total+calcPar;
       end
       else
       begin
-        inc(qImpar);
-      end;      
+        calcImpar := num/iNp;
+        lstRes2.Items.Add(num.ToString+'(num) / '+iNp.ToString+'(np) = '+FloatToStr(calcImpar));
+        inc(num);
+        total := total+calcImpar;
+      end;
     end;
-
-
-    if qPar=qImpar then
-    begin
-      lstRes.Items.Add(iNp.ToString);
-      inc(qNp);
-    end;
-
-
-    
     inc(iNp);
   end;
-  until (qNp=intervalo);
-
-
-
+  lstRes2.Items.Add('TOTAL = '+FloatToStr(total));
 end;
 
 end.
