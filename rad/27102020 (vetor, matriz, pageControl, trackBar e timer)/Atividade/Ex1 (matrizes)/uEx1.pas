@@ -37,7 +37,9 @@ implementation
 {$R *.dfm}
 
 procedure TForm1.btnGerarClick(Sender: TObject);
-var l,c,c2,c3,c4,c5,i,n,lnd,cnd,iguais: Integer; opt: String;
+var
+  l,c,c2,c3,c4,c5,i,n,lnd,cnd,iguais: Integer;
+  opt: String;
 begin
   Randomize;
   c2 := 0;
@@ -98,7 +100,6 @@ begin
       end;
     end;
   end;
-
 
 end;
 

@@ -16,7 +16,6 @@ type
     Label2: TLabel;
     Label3: TLabel;
     strNum: TStringGrid;
-    lstDif: TListBox;
     procedure btnGerarClick(Sender: TObject);
   private
     { Private declarations }
@@ -37,13 +36,49 @@ implementation
 
 {$R *.dfm}
 
+  function numDif(matriz:TStringGrid; matriz2:TStringGrid):TStringGrid;
+  var
+    l,c,iguais,lnd,cnd,c4: Integer;
+    opt: String;
+  begin
+    c4 := 0;
+    for l := 0 to matriz.RowCount-1 do
+    begin
+      for c := 0 to matriz.ColCount-1 do
+      begin
+        iguais := 0;
+        for lnd := 0 to matriz.RowCount-1 do
+        begin
+          for cnd := 0 to matriz.ColCount-1 do
+          begin
+            if matriz.Cells[c,l]=matriz.Cells[cnd,lnd] then
+            begin
+              inc(iguais);
+            end;
+          end;
+        end;
+        if iguais=1 then
+        begin
+          opt := matriz.Cells[c,l];
+          SetLength(vetDif,c4+1);
+          vetDif[c4-1] := StrToInt(opt);
+          matriz2.ColCount := c4+1;
+          matriz2.Cells[c4,0] := matriz2.Cells[c,l];
+          inc(c4);
+        end;
+      end;
+    end;
+  end;
+
 procedure TForm1.btnGerarClick(Sender: TObject);
-var l,c,c2,c3,c4,c5,i,n,lnd,cnd,iguais: Integer; opt: String;
+var
+  l,c,c2,c3,c4,c5,i,n,lnd,cnd,iguais: Integer;
+  opt: String;
 begin
   Randomize;
   c2 := 0;
   c3 := 0;
-  c4 := 0;
+  //c4 := 0;
   for l := 0 to strMatriz.RowCount-1 do
   begin
     for c := 0 to strMatriz.ColCount-1 do
@@ -77,19 +112,18 @@ begin
   begin
     for c := 0 to strMatriz.ColCount-1 do
     begin
-
       iguais := 0;
       for lnd := 0 to strMatriz.RowCount-1 do
       begin
         for cnd := 0 to strMatriz.ColCount-1 do
         begin
-          if strMatriz.Cells[l,c]=strMatriz.Cells[lnd,cnd] then
+          if strMatriz.Cells[c,l]=strMatriz.Cells[cnd,lnd] then
           begin
             inc(iguais);
           end;
         end;
       end;
-      if iguais>=2 then
+      if iguais=1 then
       begin
         opt := strMatriz.Cells[c,l];
         SetLength(vetDif,c4+1);
@@ -98,11 +132,8 @@ begin
         strNum.Cells[c4,0] := strMatriz.Cells[c,l];
         inc(c4);
       end;
-
-
     end;
   end;
-
 
 end;
 
