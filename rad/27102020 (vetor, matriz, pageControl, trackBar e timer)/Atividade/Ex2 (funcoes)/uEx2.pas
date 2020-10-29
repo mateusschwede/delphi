@@ -11,6 +11,7 @@ type
     edtVal: TEdit;
     lstRes: TListBox;
     btnGerar: TButton;
+    lstRes2: TListBox;
     procedure btnGerarClick(Sender: TObject);
   private
     { Private declarations }
@@ -20,6 +21,8 @@ type
 
 var
   Form1: TForm1;
+  listaNp: array of Integer;
+  tam: Integer = 0;
 
 implementation
 
@@ -27,13 +30,14 @@ implementation
 
 procedure TForm1.btnGerarClick(Sender: TObject);
 var
-  termo,intervalo,j,np,qPar,qImpar: Integer;
+  termo,intervalo,i,j,qPar,np,qImpar: Integer;
   calcPar,calcImpar,total: Real;
 begin
   intervalo := StrToInt(edtVal.Text);
   lstRes.Clear;
+  lstRes2.Clear;
+  total := 0;
 
-  //Percorro intervalo
   for termo := 1 to intervalo do
   begin
     qPar := 0;
@@ -62,6 +66,24 @@ begin
       lstRes.Items.Add('Impar: '+qImpar.ToString);
       lstRes.Items.Add(termo.ToString+' é np');
       lstRes.Items.Add('');
+      np := termo;
+      lstRes2.Items.Add(np.ToString);
+
+
+      {if (termo mod 2 = 0) then
+      begin
+        // np/termo
+        calcPar := np/termo;
+        lstRes2.Items.Add(np.ToString+'(np)/'+termo.ToString+'(termo)='+FloatToStr(calcPar));
+        total := total+calcPar;
+      end
+      else
+      begin
+        // termo/np
+        calcImpar := termo/np;
+        lstRes2.Items.Add(termo.ToString+'(termo)/'+np.ToString+'(np)='+FloatToStr(calcImpar));
+        total := total+calcImpar;
+      end;}
     end
     else
     begin
@@ -72,17 +94,9 @@ begin
     end;
 
 
-
   end;
 
-
-
-
-
-
-
-
-  //lstRes.Items.Add('SOMA: '+FloatToStr(total));
+  lstRes2.Items.Add('SOMA: '+FloatToStr(total));
 
 end;
 
