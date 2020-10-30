@@ -1,9 +1,9 @@
 object Form1: TForm1
   Left = 0
-  Top = 55
+  Top = 133
   Caption = 'Form1'
-  ClientHeight = 580
-  ClientWidth = 993
+  ClientHeight = 575
+  ClientWidth = 633
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -35,29 +35,8 @@ object Form1: TForm1
     Height = 13
     Caption = 'N'#250'meros '#218'nicos'
   end
-  object Label4: TLabel
-    Left = 623
-    Top = 333
-    Width = 60
-    Height = 13
-    Caption = 'Decrescente'
-  end
-  object Label5: TLabel
-    Left = 623
-    Top = 413
-    Width = 60
-    Height = 13
-    Caption = 'Decrescente'
-  end
-  object Label6: TLabel
-    Left = 623
-    Top = 496
-    Width = 60
-    Height = 13
-    Caption = 'Decrescente'
-  end
   object strMatriz: TStringGrid
-    Left = 216
+    Left = 8
     Top = 8
     Width = 609
     Height = 273
@@ -68,10 +47,10 @@ object Form1: TForm1
     TabOrder = 0
   end
   object btnGerar: TButton
-    Left = 488
+    Left = 8
     Top = 287
-    Width = 105
-    Height = 43
+    Width = 75
+    Height = 25
     Caption = 'Gerar'
     TabOrder = 1
     OnClick = btnGerarClick
@@ -111,35 +90,5 @@ object Form1: TForm1
     RowCount = 1
     FixedRows = 0
     TabOrder = 4
-  end
-  object strParDesc: TStringGrid
-    Left = 623
-    Top = 352
-    Width = 320
-    Height = 49
-    FixedCols = 0
-    RowCount = 1
-    FixedRows = 0
-    TabOrder = 5
-  end
-  object strImparDesc: TStringGrid
-    Left = 623
-    Top = 432
-    Width = 320
-    Height = 49
-    FixedCols = 0
-    RowCount = 1
-    FixedRows = 0
-    TabOrder = 6
-  end
-  object strNumDesc: TStringGrid
-    Left = 623
-    Top = 515
-    Width = 320
-    Height = 49
-    FixedCols = 0
-    RowCount = 1
-    FixedRows = 0
-    TabOrder = 7
   end
 end

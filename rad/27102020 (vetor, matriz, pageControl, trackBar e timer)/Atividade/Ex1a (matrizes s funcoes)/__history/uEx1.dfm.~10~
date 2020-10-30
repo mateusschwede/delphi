@@ -1,9 +1,9 @@
 object Form1: TForm1
   Left = 0
-  Top = 55
+  Top = 133
   Caption = 'Form1'
-  ClientHeight = 580
-  ClientWidth = 640
+  ClientHeight = 601
+  ClientWidth = 744
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -31,9 +31,9 @@ object Form1: TForm1
   object Label3: TLabel
     Left = 8
     Top = 496
-    Width = 76
+    Width = 42
     Height = 13
-    Caption = 'N'#250'meros '#218'nicos'
+    Caption = 'N'#250'meros'
   end
   object strMatriz: TStringGrid
     Left = 8
@@ -58,22 +58,30 @@ object Form1: TForm1
   object strPar: TStringGrid
     Left = 8
     Top = 352
-    Width = 609
+    Width = 320
     Height = 49
     FixedCols = 0
     RowCount = 1
     FixedRows = 0
     TabOrder = 2
   end
+  object lstPar: TListBox
+    Left = 392
+    Top = 304
+    Width = 121
+    Height = 97
+    ItemHeight = 13
+    TabOrder = 3
+  end
   object strImpar: TStringGrid
     Left = 8
     Top = 432
-    Width = 609
+    Width = 320
     Height = 49
     FixedCols = 0
     RowCount = 1
     FixedRows = 0
-    TabOrder = 3
+    TabOrder = 4
     ColWidths = (
       64
       64
@@ -84,11 +92,11 @@ object Form1: TForm1
   object strNum: TStringGrid
     Left = 8
     Top = 515
-    Width = 609
+    Width = 320
     Height = 49
     FixedCols = 0
     RowCount = 1
     FixedRows = 0
-    TabOrder = 4
+    TabOrder = 5
   end
 end

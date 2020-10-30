@@ -1,7 +1,7 @@
 object Form1: TForm1
   Left = 0
   Top = 0
-  Caption = 'Form1'
+  Caption = 'MatAtiv2'
   ClientHeight = 585
   ClientWidth = 357
   Color = clBtnFace

@@ -16,12 +16,6 @@ type
     Label2: TLabel;
     Label3: TLabel;
     strNum: TStringGrid;
-    strParDesc: TStringGrid;
-    strImparDesc: TStringGrid;
-    strNumDesc: TStringGrid;
-    Label4: TLabel;
-    Label5: TLabel;
-    Label6: TLabel;
     procedure btnGerarClick(Sender: TObject);
   private
     { Private declarations }
@@ -41,56 +35,6 @@ var
 implementation
 
 {$R *.dfm}
-
-  function matIguais(c: Integer; l: Integer; c4: Integer; opt: String; mat: TStringGrid; mat2: TStringGrid): TStringGrid;
-  begin
-    opt := mat.Cells[c,l];
-    SetLength(vetDif,c4+1);
-    vetDif[c4-1] := StrToInt(opt);
-    mat2.ColCount := c4+1;
-    mat2.Cells[c4,0] := mat.Cells[c,l];
-  end;
-
-  function matPar(c2: Integer; n: Integer; matPar: TStringGrid): TStringGrid;
-  begin
-    SetLength(vetPar,c2+1);
-    vetPar[c2-1] := n;
-    matPar.ColCount := c2+1;
-    matPar.Cells[c2,0] := n.ToString;
-  end;
-
-  function matImpar(c3: Integer; n: Integer; matImpar: TStringGrid): TStringGrid;
-  var i: Integer;
-  begin
-    SetLength(vetImpar,c3+1);
-    vetImpar[c3-1] := n;
-    matImpar.ColCount := c3+1;
-    matImpar.Cells[c3,0] := n.ToString;
-  end;
-
-  procedure desc(var lista: Array of Integer);
-  var
-    i,t: Integer;
-    c: Boolean;
-  begin
-    c := true;
-    while c do
-    begin
-      c := False;
-      for i:=Low(lista) to High(lista)-1 do
-      begin
-        if (lista[i]<lista[i+1]) then
-        begin
-          t := lista[i+1];
-          lista[i+1] := lista[i];
-          lista[i] := t;
-          c := True;
-        end;
-      end;
-    end;
-  end;
-
-
 
 procedure TForm1.btnGerarClick(Sender: TObject);
 var
@@ -112,12 +56,18 @@ begin
       //Pares e Ímpares
       if (n mod 2=0) then
       begin
-        matPar(c2,n,strPar);
+        SetLength(vetPar,c2+1);
+        vetPar[c2-1] := n;
+        strPar.ColCount := c2+1;
+        strPar.Cells[c2,0] := n.ToString;
         inc(c2);
       end
       else
       begin
-        matImpar(c3,n,strImpar);
+        SetLength(vetImpar,c3+1);
+        vetImpar[c3-1] := n;
+        strImpar.ColCount := c3+1;
+        strImpar.Cells[c3,0] := n.ToString;
         inc(c3);
       end;
     end;
@@ -141,32 +91,17 @@ begin
       end;
       if iguais=1 then
       begin
-        matIguais(c,l,c4,opt,strMatriz,strNum);
+        opt := strMatriz.Cells[c,l];
+        SetLength(vetDif,c4+1);
+        vetDif[c4-1] := StrToInt(opt);
+        strNum.ColCount := c4+1;
+        strNum.Cells[c4,0] := strMatriz.Cells[c,l];
         inc(c4);
       end;
     end;
   end;
 
-  desc(vetImpar);
-  for i := Low(vetImpar) to High(vetImpar) do
-  begin
-    strImparDesc.ColCount := i+1;
-    strImparDesc.Cells[i,0] := vetImpar[i].ToString;
-  end;
-
-  desc(vetPar);
-  for i := Low(vetPar) to High(vetPar) do
-  begin
-    strParDesc.ColCount := i;
-    strparDesc.Cells[i,0] := vetPar[i].ToString;
-  end;
-
-  desc(vetDif);
-  for i := Low(vetDif) to High(vetDif) do
-  begin
-    strNumDesc.ColCount := i;
-    strNumDesc.Cells[i,0] := vetDif[i].ToString;
-  end;
 end;
+
 
 end.
