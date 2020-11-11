@@ -3,7 +3,7 @@ object AtivCepMateus: TAtivCepMateus
   Top = 0
   Caption = 'AtivCepMateus'
   ClientHeight = 451
-  ClientWidth = 936
+  ClientWidth = 959
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -11,36 +11,74 @@ object AtivCepMateus: TAtivCepMateus
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object lblCep: TLabel
     Left = 168
-    Top = 11
+    Top = 30
     Width = 23
     Height = 13
     Caption = 'Cep:'
   end
-  object cmbEstado: TComboBox
+  object Label1: TLabel
     Left = 8
     Top = 8
+    Width = 33
+    Height = 13
+    Caption = 'Estado'
+  end
+  object cmbEstado: TComboBox
+    Left = 8
+    Top = 27
     Width = 145
     Height = 21
+    Style = csDropDownList
     TabOrder = 0
-    Text = 'Estado'
+    OnChange = cmbEstadoChange
+    Items.Strings = (
+      'TODOS'
+      'AC'
+      'AL'
+      'AP'
+      'AM'
+      'BA'
+      'CE'
+      'DF'
+      'ES'
+      'GO'
+      'MA'
+      'MT'
+      'MS'
+      'MG'
+      'PA'
+      'PB'
+      'PR'
+      'PE'
+      'PI'
+      'RJ'
+      'RN'
+      'RS'
+      'RO'
+      'RR'
+      'SC'
+      'SP'
+      'SE'
+      'TO')
   end
   object lstCidades: TListBox
-    Left = 144
-    Top = 48
+    Left = 712
+    Top = 54
     Width = 225
-    Height = 395
+    Height = 389
     ItemHeight = 13
     TabOrder = 1
   end
   object lstImport: TListBox
     Left = 8
-    Top = 48
-    Width = 130
-    Height = 395
+    Top = 54
+    Width = 698
+    Height = 389
     ItemHeight = 13
     TabOrder = 2
   end
