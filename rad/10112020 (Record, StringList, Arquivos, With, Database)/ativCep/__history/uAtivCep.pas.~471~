@@ -10,89 +10,66 @@ uses
 type
   TAtivCepMateus = class(TForm)
     cmbEstado: TComboBox;
-    lstImport: TListBox;
     lblCep: TLabel;
     Label1: TLabel;
     cmbCidade: TComboBox;
     Label2: TLabel;
     imgBandeira: TImage;
+    memRes: TMemo;
     procedure FormCreate(Sender: TObject);
     procedure cmbEstadoChange(Sender: TObject);
+    procedure cmbCidadeChange(Sender: TObject);
   private
     { Private declarations }
   public
     { Public declarations }
   end;
 
-  Registro = Class
-    descricao: String;
-    cep: String;
-    uf: String;
-  End;
-
-var
-  AtivCepMateus: TAtivCepMateus;
+var AtivCepMateus: TAtivCepMateus;
 
 implementation
-
 {$R *.dfm}
 
-procedure TAtivCepMateus.cmbEstadoChange(Sender: TObject);
-var
-  i,j,recnum: Integer;
-  descricao,cep,uf: String;
-  lista: TStringList;
-  strDescricao,strCep,strUf,descricao,cep,uf:String;
+procedure TAtivCepMateus.cmbCidadeChange(Sender: TObject);
+var i: Integer;
 begin
-  imgBandeira.Picture.LoadFromFile('..\..\assets\bandeiras\'+cmbEstado.Items[cmbEstado.ItemIndex]+'.png');
-
-  if cmbEstado.Items[cmbEstado.ItemIndex]='TODOS' then
+  for i:=0 to memRes.Lines.Count-1 do
   begin
-    lblCep.Caption := 'Cep:';
-    cmbCidade.Clear;
-
-    for i:=0 to lstImport.Items.Count-1 do
+    if cmbCidade.Items[cmbCidade.ItemIndex] = memRes.Lines[i].Split([';'])[1] then
     begin
-      if i<>0 then
-      begin
-        lista:=TStringList.Create;
-
-        Lista.AddObject(strDescricao, Registro.Create);
-        RecNum := Lista.Count-1;
-        With Registro(Lista.Objects[RecNum]) do
-        Begin
-          descricao := strDescricao;
-          cep := strCep;
-          uf := strUf;
-        End;
-
-
-
-        ExtractStrings([';'],[' '],pchar(lstImport.Items[i]),lista);
-
-        cmbCidade.Items.Add(lista.Strings[1]);
-      end
+      lblCep.Caption := 'Cep: ' + memRes.Lines[i].Split([';'])[3];
     end;
-
-    FreeAndNil(lista);
   end;
 end;
 
+procedure TAtivCepMateus.cmbEstadoChange(Sender: TObject);
+var
+  i: Integer;
+begin
+  imgBandeira.Picture.LoadFromFile('..\..\assets\bandeiras\'+cmbEstado.Items[cmbEstado.ItemIndex]+'.png');
+  lblCep.Caption := 'Cep:';
+  cmbCidade.Clear;
 
-
-
-
-
-
-
+  for i:=0 to memRes.Lines.Count-1 do
+  begin
+      if cmbEstado.Items[cmbEstado.ItemIndex] = memRes.Lines[i].Split([';'])[4] then
+      begin
+        if i<>0 then
+        begin
+          cmbCidade.Items.Add(memRes.Lines[i].Split([';'])[1]);
+        end
+      end;      
+  end;
+end;
 
 
 procedure TAtivCepMateus.FormCreate(Sender: TObject);
 const arquivo = '..\..\assets\cidades.txt';
 begin
-  if FileExists(arquivo) then
+  if FileExists(arquivo)=true then
   begin
-    lstImport.Items.LoadFromFile(arquivo);
+    memRes.Lines.LoadFromFile(arquivo);
+    memRes.Visible := false;
   end
   else
   begin

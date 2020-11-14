@@ -25,29 +25,34 @@ type
     { Public declarations }
   end;
 
-var AtivCepMateus: TAtivCepMateus;
+var
+  AtivCepMateus: TAtivCepMateus;
 
 implementation
+
 {$R *.dfm}
 
 procedure TAtivCepMateus.cmbCidadeChange(Sender: TObject);
-var i: Integer;
+var
+  i: Integer;
 begin
   for i:=0 to memRes.Lines.Count-1 do
   begin
     if cmbCidade.Items[cmbCidade.ItemIndex] = memRes.Lines[i].Split([';'])[1] then
     begin
-      lblCep.Caption := 'Cep: ' + memRes.Lines[i].Split([';'])[3];
+      lblCep.Caption := 'Cep: '+memRes.Lines[i].Split([';'])[3];
     end;
   end;
 end;
 
 procedure TAtivCepMateus.cmbEstadoChange(Sender: TObject);
-var i: Integer;
+var
+  i: Integer;
 begin
   imgBandeira.Picture.LoadFromFile('..\..\assets\bandeiras\'+cmbEstado.Items[cmbEstado.ItemIndex]+'.png');
   lblCep.Caption := 'Cep:';
   cmbCidade.Clear;
+
   for i:=0 to memRes.Lines.Count-1 do
   begin
       if cmbEstado.Items[cmbEstado.ItemIndex] = memRes.Lines[i].Split([';'])[4] then
@@ -59,6 +64,7 @@ begin
       end;      
   end;
 end;
+
 
 procedure TAtivCepMateus.FormCreate(Sender: TObject);
 const arquivo = '..\..\assets\cidades.txt';

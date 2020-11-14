@@ -2,8 +2,8 @@ object AtivCepMateus: TAtivCepMateus
   Left = 0
   Top = 0
   Caption = 'AtivCepMateus'
-  ClientHeight = 394
-  ClientWidth = 674
+  ClientHeight = 182
+  ClientWidth = 435
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -80,21 +80,13 @@ object AtivCepMateus: TAtivCepMateus
       'SE'
       'TO')
   end
-  object lstCidades: TListBox
-    Left = 431
-    Top = 14
-    Width = 225
-    Height = 368
-    ItemHeight = 13
-    TabOrder = 1
-  end
   object lstImport: TListBox
     Left = 8
     Top = 107
     Width = 417
-    Height = 275
+    Height = 62
     ItemHeight = 13
-    TabOrder = 2
+    TabOrder = 1
   end
   object cmbCidade: TComboBox
     Left = 8
@@ -102,6 +94,6 @@ object AtivCepMateus: TAtivCepMateus
     Width = 145
     Height = 21
     Style = csDropDownList
-    TabOrder = 3
+    TabOrder = 2
   end
 end

@@ -31,7 +31,8 @@ implementation
 {$R *.dfm}
 
 procedure TAtivCepMateus.cmbCidadeChange(Sender: TObject);
-var i: Integer;
+var
+  i: Integer;
 begin
   for i:=0 to memRes.Lines.Count-1 do
   begin
@@ -43,11 +44,13 @@ begin
 end;
 
 procedure TAtivCepMateus.cmbEstadoChange(Sender: TObject);
-var i: Integer;
+var
+  i: Integer;
 begin
   imgBandeira.Picture.LoadFromFile('..\..\assets\bandeiras\'+cmbEstado.Items[cmbEstado.ItemIndex]+'.png');
   lblCep.Caption := 'Cep:';
   cmbCidade.Clear;
+
   for i:=0 to memRes.Lines.Count-1 do
   begin
       if cmbEstado.Items[cmbEstado.ItemIndex] = memRes.Lines[i].Split([';'])[4] then
@@ -59,6 +62,7 @@ begin
       end;      
   end;
 end;
+
 
 procedure TAtivCepMateus.FormCreate(Sender: TObject);
 const arquivo = '..\..\assets\cidades.txt';
