@@ -31,8 +31,7 @@ begin
   cmbCid.Clear;
   for i:=0 to lstRes.Items.Count-1 do
   begin
-      if cmbUf.Items[cmbUf.ItemIndex]=lstRes.Items[i].Split([';'])[4] then
-        if i<>0 then cmbCid.Items.Add(lstRes.Items[i].Split([';'])[1]);
+      if cmbUf.Items[cmbUf.ItemIndex]=lstRes.Items[i].Split([';'])[4] then cmbCid.Items.Add(lstRes.Items[i].Split([';'])[1]);
   end;
 end;
 
