@@ -17,7 +17,7 @@ object AtivCepMateus: TAtivCepMateus
   object lblCep: TLabel
     Left = 87
     Top = 35
-    Width = 95
+    Width = 3
     Height = 13
   end
   object imgBandeira: TImage
