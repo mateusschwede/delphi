@@ -1,9 +1,9 @@
 object AtivCepMateus: TAtivCepMateus
   Left = 0
   Top = 0
-  Caption = 'AtivCepMateus'
-  ClientHeight = 140
-  ClientWidth = 261
+  Caption = 'Cep'
+  ClientHeight = 84
+  ClientWidth = 190
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -15,41 +15,26 @@ object AtivCepMateus: TAtivCepMateus
   PixelsPerInch = 96
   TextHeight = 13
   object lblCep: TLabel
-    Left = 159
-    Top = 88
-    Width = 23
+    Left = 87
+    Top = 35
+    Width = 95
     Height = 13
-    Caption = 'Cep:'
-  end
-  object Label1: TLabel
-    Left = 8
-    Top = 8
-    Width = 33
-    Height = 13
-    Caption = 'Estado'
-  end
-  object Label2: TLabel
-    Left = 8
-    Top = 61
-    Width = 33
-    Height = 13
-    Caption = 'Cidade'
   end
   object imgBandeira: TImage
-    Left = 159
-    Top = 8
-    Width = 97
-    Height = 50
+    Left = 8
+    Top = 35
+    Width = 73
+    Height = 38
     Stretch = True
   end
-  object cmbEstado: TComboBox
+  object cmbUf: TComboBox
     Left = 8
-    Top = 27
-    Width = 145
+    Top = 8
+    Width = 57
     Height = 21
     Style = csDropDownList
     TabOrder = 0
-    OnChange = cmbEstadoChange
+    OnChange = cmbUfChange
     Items.Strings = (
       'AC'
       'AL'
@@ -79,22 +64,22 @@ object AtivCepMateus: TAtivCepMateus
       'SE'
       'TO')
   end
-  object cmbCidade: TComboBox
-    Left = 8
-    Top = 80
-    Width = 145
+  object cmbCid: TComboBox
+    Left = 71
+    Top = 8
+    Width = 111
     Height = 21
     Style = csDropDownList
     TabOrder = 1
-    OnChange = cmbCidadeChange
+    OnChange = cmbCidChange
   end
-  object memRes: TMemo
-    Left = 8
-    Top = 107
-    Width = 248
-    Height = 30
-    Lines.Strings = (
-      'memRes')
+  object lstRes: TListBox
+    Left = 87
+    Top = 48
+    Width = 95
+    Height = 25
+    ItemHeight = 13
     TabOrder = 2
+    Visible = False
   end
 end

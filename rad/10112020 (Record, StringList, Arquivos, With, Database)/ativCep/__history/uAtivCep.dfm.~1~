@@ -2,8 +2,8 @@ object AtivCepMateus: TAtivCepMateus
   Left = 0
   Top = 0
   Caption = 'AtivCepMateus'
-  ClientHeight = 205
-  ClientWidth = 932
+  ClientHeight = 140
+  ClientWidth = 261
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -51,7 +51,6 @@ object AtivCepMateus: TAtivCepMateus
     TabOrder = 0
     OnChange = cmbEstadoChange
     Items.Strings = (
-      'TODOS'
       'AC'
       'AL'
       'AP'
@@ -92,8 +91,8 @@ object AtivCepMateus: TAtivCepMateus
   object memRes: TMemo
     Left = 8
     Top = 107
-    Width = 916
-    Height = 89
+    Width = 248
+    Height = 30
     Lines.Strings = (
       'memRes')
     TabOrder = 2

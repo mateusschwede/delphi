@@ -33,8 +33,7 @@ end;
 procedure TAtivCepMateus.cmbUfChange(Sender: TObject);
 begin
   imgBandeira.Picture.LoadFromFile('..\..\assets\bandeiras\'+cmbUf.Items[cmbUf.ItemIndex]+'.png');
-  lblCep.Caption := '';
-  cmbCid.Clear;
+  lblCep.Caption := ''; cmbCid.Clear;
   for i:=0 to lstRes.Items.Count-1 do
   begin
       if cmbUf.Items[cmbUf.ItemIndex]=lstRes.Items[i].Split([';'])[4] then
